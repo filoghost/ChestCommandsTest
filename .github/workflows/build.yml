@@ -18,3 +18,10 @@ jobs:
           java-version: 1.8
       - name: Build with Maven
         run: mvn -B clean package javadoc:aggregate
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: target/site
+          CLEAN: true
